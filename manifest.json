@@ -1,22 +1,43 @@
 {
+    "author": "d.snytkine",
     "background": {
-        "scripts": [ "js/jquery.min.js", "js/crypto_sha1.js", "js/lib.js", "js/bg.js" ]
+        "page": "background.html",
+        "persistent": true
     },
     "browser_action": {
-        "default_icon": "img/icon_reload_19.png",
+        "default_icon": {
+            "16": "img/16/icon_timed_reload_16.png",
+            "32": "img/32/icon_timed_reload_32.png"
+        },
         "default_popup": "popup.html"
     },
-    "options_page": "settings.html",
-    "name": "Staying Alive for Google Chrome™",
+    "content_security_policy": "script-src 'self' https://platform.twitter.com https://connect.facebook.net; object-src 'self'",
     "description": "Never Get Logged Out of any website due to idling!",
     "icons": {
         "16": "img/16/icon_timed_reload_16.png",
         "48": "img/48/icon_timed_reload_48.png",
         "128": "img/128/icon_timed_reload_128.png"
     },
-    "web_accessible_resources": ["beep.wav"],
-    "content_security_policy": "script-src 'self' https://platform.twitter.com https://connect.facebook.net; object-src 'self'",
     "manifest_version": 2,
-    "permissions": [ "tabs", "activeTab", "background", "cookies", "webRequest", "storage", "power", "webRequestBlocking", "\u003Call_urls\u003E" ],
-    "version": "1.6"
+    "name": "Staying Alive for Google Chrome™",
+    "options_page": "settings.html",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "background",
+        "cookies",
+        "webRequest",
+        "storage",
+        "power",
+        "webRequestBlocking",
+        "<all_urls>"
+    ],
+    "version": "1.6",
+    "web_accessible_resources": [
+        "beep.wav"
+    ],
+    "-ms-preload": {
+        "backgroundScript": "backgroundScriptsAPIBridge.js",
+        "contentScript": "contentScriptsAPIBridge.js"
+    }
 }
