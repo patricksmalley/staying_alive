@@ -854,7 +854,7 @@ var getPopupView = function () {
         console.log("View: " + view);
         console.log("View href: " + view.location.href);
         d("IS popup.html: " + myHref.endsWith("popup.html"));
-        //View href: chrome-extension://gedhildfbncohbnfpolpiohkhmgccajo/popup.html
+        //View href: ms-browser-extension://gedhildfbncohbnfpolpiohkhmgccajo/popup.html
         if (myHref.endsWith("popup.html")) {
             return view;
             //view.document.getElementById("popup_ui_main").innerHTML = "<p>HELLO FROM BACKGROUND</p>";
